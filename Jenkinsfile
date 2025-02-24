@@ -14,24 +14,7 @@ pipeline {
             }
         }
 
-        stage('Create S3 Bucket') {
-            steps {
-                script {
-                    // Generate a unique bucket name using timestamp
-                    def timestamp = sh(script: 'date +%s', returnStdout: true).trim()
-                    def bucketName = "my-s3-bucket-${timestamp}"
-                    
-                    // Create S3 bucket in ap-south-1
-                    sh """
-                        aws s3api create-bucket \
-                            --bucket ${ts-tuts-state} \
-                            --region ${ap-south-1} \
-                            --create-bucket-configuration LocationConstraint=${ap-south-1}
-                    """
-                    echo "S3 bucket '${ts-tuts-state}' created successfully in ${ap-south-1}."
-                }
-            }
-        }
+     }
 
         stage('Terraform Init') {
             steps {
