@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/ksri0610/Terraform_multicloud_jenkins.git' // Replace with your repo
+                git branch: 'main', url: 'https://github.com/ksri0610/tf-tuts.git' // Replace with your repo
             }
         }
 
